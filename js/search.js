@@ -45,7 +45,6 @@ btnSearchElement.addEventListener('click',()=>{
 //fja koja vraca sta je selektovano i poziva fj-u za fetch
 const genre = () =>{
     let collection = selectOptionElement.selectedOptions[0].value;
-    console.log(collection)
     if (collection === 'all'){
         allGenres(); 
     }
@@ -71,11 +70,11 @@ const allGenres = () =>{
 }
 
 const moviesCat = () =>{
+    trenutnaStranicaElement.value = strana;
     fetch(`http://www.omdbapi.com/?apikey=e35584e0&s=${searchStringElement.value}&type=movie&page=${strana}`)
     .then(res => res.json())
     .then(resJson =>{
         setFilm(resJson.Search);
-        console.log(film)
         render();
         paginationElement.hidden = false;
     })
@@ -83,6 +82,7 @@ const moviesCat = () =>{
 }
 
 const seriesCat = () =>{
+    trenutnaStranicaElement.value = strana;
     fetch(`http://www.omdbapi.com/?apikey=e35584e0&s=${searchStringElement.value}&type=series&page=${strana}`)
     .then(res => res.json())
     .then(resJson =>{
@@ -122,18 +122,22 @@ const dodaj = (idx) => {
     let indChangeBtn = (document.querySelector(`.btnChangeIdx-${idx}`).className.split(" ")[2].split('-')[1]); //vraca indeks 
         
     if(Number(indChangeBtn) == Number(idx)){
-            document.querySelector(`.btnChangeIdx-${idx}`).innerText= 'Buyed'; 
+            document.querySelector(`.btnChangeIdx-${idx}`).innerText= 'In cart'; 
     }
 
     if(!localStorage.getItem('korpa')){
         localStorage.setItem('korpa', '[]');
     };
 
-
     korpa = JSON.parse(localStorage.getItem('korpa'));
     korpa.push(film[idx]);
     console.log(korpa);
     localStorage.setItem('korpa', JSON.stringify(korpa));
+
+    if(localStorage.getItem('korpa')){
+        korpa = JSON.parse(localStorage.getItem('korpa'));
+        document.querySelector('#brStavki').innerHTML = `(${korpa.length})`
+    }  
 }
 
 

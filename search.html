@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+     <!--Animation-->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+     />
 </head>
 <body>
 
@@ -21,24 +26,27 @@
 
         <ul>
             <li><a href="search.html"><i class="fas fa-search"></i></a></li>
-            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></i></a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart"><span id="brStavki"></span></i></a></li>
         </ul>
     </nav>
 
 
-    <div class="container searchGroup">
-        <div class="input-group mb-3">
+    <div class="container">
+        <div class="searchGroup bg-dark p-5" style="--bs-bg-opacity: .8;">
+            <div class="input-group mb-3">
 
-            <select name="" id="selectOption">
-                <option value="all">all</option>
-                <option value="movies">movies</option>
-                <option value="series">series</option>
-            </select>
-
-            <input type="text" class="form-control searchString" name="searchString" placeholder="Search">
-
-            <button class="btn btnSearch" type="button" >Search</button>
+                <select name="" id="selectOption">
+                    <option value="all">all</option>
+                    <option value="movies">movies</option>
+                    <option value="series">series</option>
+                </select>
+    
+                <input type="text" class="form-control searchString bg-transparent text-white" name="searchString" placeholder="Search">
+    
+                <button class="btn btnSearch" type="button" >Search</button>
+            </div>
         </div>
+        
     </div>
 
     <div class="container">

@@ -70,9 +70,9 @@ nav ul li a:hover{
 
 .headline h1{
     color: white;
-    background-color: black;
+    background-color: #212529;
     padding: 50px 100px;
-    opacity: .9;
+    opacity: .8;
 }
 
 /***********************************
@@ -84,6 +84,11 @@ search
 
 #selectOption{
     padding: 10px;
+}
+
+.btnSearch{
+    background: white;
+    color: black;
 }
 
 .prikaz .col,
@@ -106,6 +111,37 @@ search
 .trenutna-stranica{
     text-align: center;
 }
+
+/***********************************
+cart page
+************************************/
+
+.cartPage{
+    padding: 50px 0;
+    height: 70vh;
+}
+
+.clearCart{
+    background: white;
+    color: black;
+    padding: 15px 45px;
+    transition: .3s ease-in;
+    border: 1px solid black;
+}
+
+.clearCart:hover{
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.cursor-pointer{
+    cursor:pointer;
+}
+
+/***********************************
+responsive
+************************************/
 
 @media (max-width: 600px) {
     .containerNav,
